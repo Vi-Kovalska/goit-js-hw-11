@@ -19,8 +19,7 @@ function handleSearchImages(event) {
   if (!event.target.elements.titleImage.value.trim()) {
     return;
   }
-  //   listImages.innerHTML = '';
-  console.log('Everything will be normal');
+
   fetchPixabay(event.target.elements.titleImage.value)
     .then(data => {
       if (data.hits.length === 0) {
@@ -35,12 +34,13 @@ function handleSearchImages(event) {
           captionDelay: '250',
           className: 'wrapper',
         });
+        lightbox.refresh();
       }
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
-      console.log('Success');
+      event.target.elements.titleImage.value = '';
     });
 }
