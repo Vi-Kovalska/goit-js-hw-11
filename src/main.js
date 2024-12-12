@@ -23,7 +23,7 @@ function handleSearchImages(event) {
   fetchPixabay(event.target.elements.titleImage.value)
     .then(data => {
       if (data.hits.length === 0) {
-        iziToastCondition();
+        throw new Error();
       } else {
         listImages.insertAdjacentHTML(
           'beforeend',
@@ -38,7 +38,8 @@ function handleSearchImages(event) {
       }
     })
     .catch(err => {
-      console.log(err);
+      listImages.innerHTML = '';
+      iziToastCondition();
     })
     .finally(() => {
       event.target.elements.titleImage.value = '';

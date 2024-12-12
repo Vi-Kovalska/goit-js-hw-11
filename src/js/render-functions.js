@@ -45,5 +45,7 @@ export function iziToastCondition() {
     messageSize: '16px',
     messageLineHeight: '24px',
     backgroundColor: '#EF4040',
+    timeout: 5000,
+    displayMode: 1,
   });
 }
